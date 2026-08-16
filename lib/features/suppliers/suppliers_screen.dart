@@ -6,40 +6,12 @@ class SuppliersScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: AppColors.backgroundDark,
-      body: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Suppliers',
-              style: Theme.of(context).textTheme.displayLarge?.copyWith(fontSize: 28),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'Manage vendors and supply partners.',
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
-            const SizedBox(height: 24),
-            Expanded(
-              child: Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: AppColors.surfaceDark,
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: Colors.white.withValues(alpha: 0.08)),
-                ),
-                child: const Center(
-                  child: Text(
-                    'Suppliers Content Placeholder',
-                    style: TextStyle(color: AppColors.textMuted, fontSize: 16),
-                  ),
-                ),
-              ),
-            ),
-          ],
+      body: Center(
+        child: Text(
+          'Suppliers Screen (Starting from 0)',
+          style: TextStyle(color: Colors.white, fontSize: 18),
         ),
       ),
     );
