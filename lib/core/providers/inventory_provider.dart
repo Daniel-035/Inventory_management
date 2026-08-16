@@ -1,8 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:uuid/uuid.dart';
 import '../models/inventory_item.dart';
-
-const _uuid = Uuid();
 
 class InventoryNotifier extends StateNotifier<List<InventoryItem>> {
   InventoryNotifier() : super([]); // Start empty from 0
