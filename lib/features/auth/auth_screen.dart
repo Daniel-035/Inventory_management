@@ -563,7 +563,7 @@ class _AuthScreenState extends ConsumerState<AuthScreen> with SingleTickerProvid
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          FaIcon(icon, color: Colors.white, size: 16),
+          Icon(icon, color: Colors.white, size: 16),
           const SizedBox(width: 8),
           Text(
             label,
