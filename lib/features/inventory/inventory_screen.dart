@@ -11,7 +11,7 @@ class InventoryScreen extends ConsumerWidget {
   const InventoryScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final filteredItems = ref.watch(filteredInventoryProvider);
     final categories = ref.watch(categoriesProvider);
     final selectedCategory = ref.watch(selectedCategoryProvider);
@@ -95,7 +95,7 @@ class InventoryScreen extends ConsumerWidget {
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 itemCount: categories.length,
-                separatorBuilder: (_, __) => const SizedBox(width: 8),
+                separatorBuilder: (_, index) => const SizedBox(width: 8),
                 itemBuilder: (context, index) {
                   final category = categories[index];
                   final isSelected = selectedCategory == category;
@@ -137,7 +137,7 @@ class InventoryScreen extends ConsumerWidget {
                       )
                     : ListView.separated(
                         itemCount: filteredItems.length,
-                        separatorBuilder: (_, __) => const Divider(color: Color(0x1FFFFFFF), height: 1),
+                        separatorBuilder: (_, index) => const Divider(color: Color(0x1FFFFFFF), height: 1),
                         itemBuilder: (context, index) {
                           final item = filteredItems[index];
                           return ListTile(

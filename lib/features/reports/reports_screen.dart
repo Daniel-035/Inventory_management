@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:csv/csv.dart';
 import 'package:intl/intl.dart';
 import '../../core/constants/app_colors.dart';
 import '../../core/providers/inventory_provider.dart';
@@ -28,7 +27,7 @@ class ReportsScreen extends ConsumerWidget {
         ]
     ];
 
-    String csvData = const ListToCsvConverter().convert(rows);
+    String csvData = rows.map((row) => row.map((e) => '"$e"').join(',')).join('\n');
 
     showDialog(
       context: context,
@@ -138,7 +137,7 @@ class ReportsScreen extends ConsumerWidget {
                   Expanded(
                     child: ListView.separated(
                       itemCount: items.length,
-                      separatorBuilder: (_, __) => const Divider(color: Color(0x1FFFFFFF)),
+                      separatorBuilder: (_, index) => const Divider(color: Color(0x1FFFFFFF)),
                       itemBuilder: (context, index) {
                         final item = items[index];
                         return Row(

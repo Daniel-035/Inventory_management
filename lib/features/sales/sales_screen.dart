@@ -20,7 +20,7 @@ class SalesScreen extends ConsumerWidget {
         pageFormat: PdfPageFormat.a4,
         build: (pw.Context pdfContext) {
           return pw.Column(
-            cross: pw.CrossAxisAlignment.start,
+            crossAxisAlignment: pw.CrossAxisAlignment.start,
             children: [
               pw.Row(
                 mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
@@ -33,7 +33,7 @@ class SalesScreen extends ConsumerWidget {
               pw.Text('Date: ${DateFormat('yyyy-MM-dd HH:mm').format(DateTime.now())}'),
               pw.Text('Warehouse: Main Central Hub - Zone A'),
               pw.SizedBox(height: 20),
-              pw.Table.fromTextArray(
+              pw.TableHelper.fromTextArray(
                 headers: ['Item Name', 'SKU', 'Unit Price', 'Stock Qty', 'Total Value'],
                 data: items.map((item) => [
                   item.name,
@@ -113,7 +113,7 @@ class SalesScreen extends ConsumerWidget {
                   Expanded(
                     child: ListView.separated(
                       itemCount: items.length,
-                      separatorBuilder: (_, __) => const Divider(color: Color(0x1FFFFFFF)),
+                      separatorBuilder: (_, index) => const Divider(color: Color(0x1FFFFFFF)),
                       itemBuilder: (context, index) {
                         final item = items[index];
                         return ListTile(

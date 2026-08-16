@@ -12,7 +12,7 @@ class DashboardScreen extends ConsumerWidget {
   const DashboardScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final totalValue = ref.watch(totalInventoryValueProvider);
     final items = ref.watch(inventoryProvider);
     final lowStockItems = ref.watch(lowStockItemsProvider);
@@ -328,7 +328,7 @@ class DashboardScreen extends ConsumerWidget {
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               itemCount: lowStockItems.length,
-              separatorBuilder: (_, __) => const Divider(color: Color(0x1FFFFFFF)),
+              separatorBuilder: (_, index) => const Divider(color: Color(0x1FFFFFFF)),
               itemBuilder: (context, index) {
                 final item = lowStockItems[index];
                 return Row(
