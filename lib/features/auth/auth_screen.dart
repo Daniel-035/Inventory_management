@@ -548,7 +548,7 @@ class _AuthScreenState extends ConsumerState<AuthScreen> with SingleTickerProvid
   }
 
   Widget _buildSocialButton({
-    required IconData icon,
+    required dynamic icon,
     required String label,
     required VoidCallback onPressed,
   }) {
@@ -563,7 +563,7 @@ class _AuthScreenState extends ConsumerState<AuthScreen> with SingleTickerProvid
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, color: Colors.white, size: 16),
+          Icon(icon as IconData, color: Colors.white, size: 16),
           const SizedBox(width: 8),
           Text(
             label,
